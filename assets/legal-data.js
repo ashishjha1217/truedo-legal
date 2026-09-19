@@ -3,7 +3,7 @@
 // required by App Store Guideline 1.2 for apps with user-generated content.
 window.LEGAL = (function () {
   const APP = 'TrueDo';
-  const CONTACT = 'support@truedo.co.in';
+  const CONTACT = 'ashishjhadeveloper@gmail.com';
   const EFFECTIVE = 'July 2, 2026';
 
   const PRIVACY = [
