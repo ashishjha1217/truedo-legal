@@ -3,24 +3,285 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TrueDo — Legal</title>
-  <meta name="description" content="TrueDo privacy policy, terms of service and support." />
+  <title>TrueDo — Your whole life, one beautiful app</title>
+  <meta name="description" content="Money, tasks, health, notes and a private vault — organised beautifully, powered by AI, synced across iPhone and web. Private by design. Free to start." />
+  <meta name="theme-color" content="#f6f7f9" />
+  <meta property="og:title" content="TrueDo — Your whole life, one beautiful app" />
+  <meta property="og:description" content="Money, tasks, health, notes and a private vault — organised beautifully and powered by AI." />
+  <meta property="og:type" content="website" />
   <link rel="icon" href="assets/icon.svg" />
-  <link rel="stylesheet" href="assets/styles.css" />
-  <script src="assets/site.js"></script>
+  <link rel="stylesheet" href="assets/landing.css" />
 </head>
 <body>
-  <div class="aura-bg"></div>
-  <section class="section"><div class="wrap doc">
-    <h1 class="h1">TrueDo</h1>
-    <p class="muted mt-2">Tasks, notes, money and health in one app.</p>
-    <h2 class="mt-3">Legal &amp; support</h2>
-    <ul>
-      <li><a href="privacy.html">Privacy Policy</a></li>
-      <li><a href="terms.html">Terms of Service</a></li>
-      <li><a href="support.html">Support</a></li>
-    </ul>
-    <p class="muted mt-3">Contact: <a href="mailto:ashishjhadeveloper@gmail.com">ashishjhadeveloper@gmail.com</a></p>
-  </div></section>
+  <!-- Nav -->
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="index.html"><span class="brand-mark">⚡</span> TrueDo</a>
+      <div class="nav-links">
+        <a class="navlink" href="#features">Features</a>
+        <a class="navlink" href="features.html">All features</a>
+        <a class="navlink" href="#reviews">Reviews</a>
+        <a class="navlink" href="support.html">Support</a>
+        <a class="btn btn-ghost" href="app.html" style="padding:9px 16px;">Open web app</a>
+        <button class="theme-toggle" data-theme-toggle title="Toggle theme"><span data-theme-icon>☾</span></button>
+        <button class="menu-btn" aria-label="Menu">☰</button>
+      </div>
+    </div>
+  </nav>
+  <div class="mobile-menu">
+    <a href="#features">Features</a>
+    <a href="features.html">All features</a>
+    <a href="#reviews">Reviews</a>
+    <a href="support.html">Support</a>
+    <a href="app.html">Open web app</a>
+  </div>
+
+  <!-- Hero -->
+  <header class="section hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy reveal in">
+        <span class="eyebrow"><span class="dot"></span> Money · Tasks · Health · Notes · Vault</span>
+        <h1 class="h-hero mt-2">Your whole life,<br/><span class="gradient-text">one beautiful app.</span></h1>
+        <p class="lead mt-2">TrueDo brings your money, tasks, health, notes and private documents together — organised beautifully, powered by a private AI, and synced across iPhone and the web.</p>
+        <div class="row mt-3" style="display:flex; gap:14px; flex-wrap:wrap;">
+          <a class="btn btn-primary btn-lg" href="https://apps.apple.com/app/id6753998938" target="_blank" rel="noopener"> Download on iOS</a>
+          <a class="btn btn-ghost btn-lg" href="app.html">Open the web app →</a>
+        </div>
+        <div class="trust-row mt-3">
+          <span class="chip"><span class="dot" style="background:#fbbf24"></span> 4.9 ★ rating</span>
+          <span class="chip"><span class="dot" style="background:#22d3ee"></span> Private by design</span>
+          <span class="chip"><span class="dot" style="background:#8b5cf6"></span> Free to start</span>
+        </div>
+      </div>
+      <div class="hero-media reveal in d1" style="display:flex; justify-content:center;">
+        <div class="device">
+          <div class="notch"></div>
+          <div class="device-screen" data-slot="hero">
+            <div class="shot-empty"><div><div class="glyph">🏠</div><div class="t">Home dashboard</div><div class="s">Upload your screenshot in /admin</div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Trust strip -->
+  <section class="wrap" style="padding-bottom:20px;">
+    <div class="card reveal" style="display:flex; flex-wrap:wrap; gap:26px 44px; justify-content:center; align-items:center; text-align:center;">
+      <div><strong style="font-size:1.15rem;">Encrypted</strong><div class="faint" style="font-size:.82rem;">vault & sync</div></div>
+      <div><strong style="font-size:1.15rem;">No ads</strong><div class="faint" style="font-size:.82rem;">ever, no tracking</div></div>
+      <div><strong style="font-size:1.15rem;">AI-powered</strong><div class="faint" style="font-size:.82rem;">private assistant</div></div>
+      <div><strong style="font-size:1.15rem;">iPhone + Web</strong><div class="faint" style="font-size:.82rem;">real-time sync</div></div>
+      <div><strong style="font-size:1.15rem;">You own it</strong><div class="faint" style="font-size:.82rem;">your data, always</div></div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="section" id="features">
+    <div class="wrap">
+      <div class="center" style="max-width:640px;">
+        <span class="eyebrow reveal">Five worlds, one app</span>
+        <h2 class="h1 mt-2 reveal">Everything that matters,<br/>beautifully in its place.</h2>
+        <p class="lead mt-2 reveal center">Each part of TrueDo has its own colour and identity — so the moment you glance, your brain knows exactly where it is.</p>
+      </div>
+
+      <!-- Money -->
+      <div class="feature-row mt-4">
+        <div class="feature-copy reveal">
+          <span class="tag"><span class="dot" style="background:#34d399"></span> Money</span>
+          <h3 class="h2 mt-2">A living picture of your net worth.</h3>
+          <p class="muted mt-2">Accounts, balances, transactions, budgets and goals — with liquid budget cards and time-by-category insight. No bank connection, no ads, no selling your data. You type it, you own it.</p>
+          <ul class="feat-list">
+            <li>Live funds & stocks with real-time prices</li>
+            <li>Smart budgets with left-to-save tracking</li>
+            <li>Track investments &amp; assets — cars, gadgets and more</li>
+            <li>Khata-style money lent & borrowed</li>
+          </ul>
+        </div>
+        <div class="feature-media reveal d1">
+          <div class="device">
+            <div class="notch"></div>
+            <div class="device-screen" data-slot="money">
+              <div class="shot-empty"><div><div class="glyph">💸</div><div class="t">Money</div><div class="s">Upload in /admin</div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tasks -->
+      <div class="feature-row flip">
+        <div class="feature-copy reveal">
+          <span class="tag"><span class="dot" style="background:#60a5fa"></span> Tasks</span>
+          <h3 class="h2 mt-2">Tasks that stay calm.</h3>
+          <p class="muted mt-2">A distraction-free task manager with categories, reminders, live timers and Dynamic Island support. Three view modes, a Kanban board on the web, and habits with streaks.</p>
+          <ul class="feat-list">
+            <li>Live Activity & Dynamic Island timers</li>
+            <li>Habits with honest, ever-climbing streaks</li>
+            <li>Share a task, plan together</li>
+          </ul>
+        </div>
+        <div class="feature-media reveal d1">
+          <div class="device">
+            <div class="notch"></div>
+            <div class="device-screen" data-slot="tasks">
+              <div class="shot-empty"><div><div class="glyph">✅</div><div class="t">Tasks</div><div class="s">Upload in /admin</div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Health -->
+      <div class="feature-row">
+        <div class="feature-copy reveal">
+          <span class="tag"><span class="dot" style="background:#34e2a0"></span> Health · New</span>
+          <h3 class="h2 mt-2">Eat well, move more — watch your score climb.</h3>
+          <p class="muted mt-2">Snap a photo of your plate and AI counts the calories, portion and macros. Log weight and steps, sync Apple Health, and get recipe ideas from what's already in your kitchen.</p>
+          <ul class="feat-list">
+            <li>AI food scanner with grams & macros</li>
+            <li>Health score, medals and trends</li>
+            <li>Apple Health steps, heart rate & energy</li>
+          </ul>
+        </div>
+        <div class="feature-media reveal d1">
+          <div class="device">
+            <div class="notch"></div>
+            <div class="device-screen" data-slot="health">
+              <div class="shot-empty"><div><div class="glyph">❤️</div><div class="t">Health</div><div class="s">Upload in /admin</div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vault -->
+      <div class="feature-row flip">
+        <div class="feature-copy reveal">
+          <span class="tag"><span class="dot" style="background:#a78bfa"></span> Vault</span>
+          <h3 class="h2 mt-2">A vault that's actually private.</h3>
+          <p class="muted mt-2">One board for notes, voice memos, photos, documents and links — lock the sensitive ones behind Face ID and a PIN. Locked content is encrypted with a key derived from your PIN — it never leaves your control in the clear.</p>
+          <ul class="feat-list">
+            <li>Face ID + PIN, encrypted at rest</li>
+            <li>Voice notes, hand-drawn sketches & folders</li>
+            <li>Private photo gallery</li>
+          </ul>
+        </div>
+        <div class="feature-media reveal d1">
+          <div class="device">
+            <div class="notch"></div>
+            <div class="device-screen" data-slot="vault">
+              <div class="shot-empty"><div><div class="glyph">🔒</div><div class="t">Vault</div><div class="s">Upload in /admin</div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI showcase -->
+  <section class="section">
+    <div class="wrap">
+      <div class="cta-band reveal">
+        <span class="eyebrow">Truedo Intelligence</span>
+        <h2 class="h1 mt-2">Just tell it. It's done.</h2>
+        <p class="lead mt-2 center" style="max-width:600px;">Type it or say it — a private AI turns a sentence into a task, a logged expense, a scanned meal or a plan for your week. And it talks back in a voice you pick.</p>
+        <div class="grid-3 mt-4" style="text-align:left;">
+          <div class="card reveal"><div class="icon-chip" style="background:rgba(59,130,246,.15)">💬</div><h3 class="h3">Natural language</h3><p class="muted mt-2">"Add gym tomorrow 6 AM" or "I spent 500 on groceries" — it just works.</p></div>
+          <div class="card reveal d1"><div class="icon-chip" style="background:rgba(34,211,238,.15)">🎙️</div><h3 class="h3">Real-time voice</h3><p class="muted mt-2">A full-screen voice assistant with an Indian-English personality option.</p></div>
+          <div class="card reveal d2"><div class="icon-chip" style="background:rgba(139,92,246,.15)">🔐</div><h3 class="h3">Private by default</h3><p class="muted mt-2">Your name, email and locked vault items are never sent to the AI.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Uses gallery -->
+  <section class="section">
+    <div class="wrap">
+      <div class="center" style="max-width:600px;">
+        <span class="eyebrow reveal">Made for real life</span>
+        <h2 class="h1 mt-2 reveal">One app, every part of your day.</h2>
+      </div>
+      <div class="uses-scroll mt-4">
+        <div class="use-card reveal"><div class="device"><div class="notch"></div><div class="device-screen" data-slot="use-morning"><div class="shot-empty"><div><div class="glyph">🌅</div><div class="t">Morning brief</div><div class="s">/admin</div></div></div></div></div><div class="cap mt-2">Morning</div><div class="cap-s">Your day, at a glance</div></div>
+        <div class="use-card reveal d1"><div class="device"><div class="notch"></div><div class="device-screen" data-slot="use-money"><div class="shot-empty"><div><div class="glyph">📊</div><div class="t">Budgets</div><div class="s">/admin</div></div></div></div></div><div class="cap mt-2">Payday</div><div class="cap-s">Budget in seconds</div></div>
+        <div class="use-card reveal d2"><div class="device"><div class="notch"></div><div class="device-screen" data-slot="use-food"><div class="shot-empty"><div><div class="glyph">🍱</div><div class="t">Food scan</div><div class="s">/admin</div></div></div></div></div><div class="cap mt-2">Lunch</div><div class="cap-s">Scan & log a meal</div></div>
+        <div class="use-card reveal d3"><div class="device"><div class="notch"></div><div class="device-screen" data-slot="use-vault"><div class="shot-empty"><div><div class="glyph">🗂️</div><div class="t">Vault</div><div class="s">/admin</div></div></div></div></div><div class="cap mt-2">Anytime</div><div class="cap-s">Secrets, safe</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="section">
+    <div class="wrap">
+      <div class="card reveal">
+        <div class="stats">
+          <div class="stat"><div class="num"><span data-count="5" data-suffix="">0</span></div><div class="lbl">Life areas, unified</div></div>
+          <div class="stat"><div class="num"><span data-count="4.9" data-dec="1">0</span>★</div><div class="lbl">Average rating</div></div>
+          <div class="stat"><div class="num"><span data-count="100" data-suffix="%">0</span></div><div class="lbl">Yours, no ads</div></div>
+          <div class="stat"><div class="num"><span data-count="2" data-suffix=" s">0</span></div><div class="lbl">To log anything</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section class="section" id="reviews">
+    <div class="wrap">
+      <div class="center">
+        <span class="eyebrow reveal">Loved by early users</span>
+        <h2 class="h1 mt-2 reveal">4.9 out of 5</h2>
+        <div class="stars mt-2 reveal">★★★★★</div>
+      </div>
+      <div class="review-grid mt-4">
+        <div class="review reveal"><div class="rstars">★★★★★</div><p>"Finally deleted five other apps. My money, tasks and notes finally live in one calm place."</p><div class="who">— Priya S.</div></div>
+        <div class="review reveal d1"><div class="rstars">★★★★★</div><p>"The AI food scan is genuinely magic. I snap my plate and it just knows the calories."</p><div class="who">— Marcus T.</div></div>
+        <div class="review reveal d2"><div class="rstars">★★★★★</div><p>"It's the first budgeting app that feels premium and private at the same time."</p><div class="who">— Aisha K.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Security -->
+  <section class="section">
+    <div class="wrap">
+      <div class="card reveal">
+        <span class="eyebrow">Privacy comes first</span>
+        <h2 class="h2 mt-2">Your data is yours. Full stop.</h2>
+        <div class="grid-3 mt-3">
+          <div><h3 class="h3">On-device by default</h3><p class="muted mt-2">Signed out, everything stays local. Sign in only when you want to sync.</p></div>
+          <div><h3 class="h3">No ads, no tracking</h3><p class="muted mt-2">We never sell your data, run ads, or collect location, contacts or browsing.</p></div>
+          <div><h3 class="h3">Encrypted vault</h3><p class="muted mt-2">Locked notes are encrypted; PINs are stored only as a one-way hash.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section" id="download">
+    <div class="wrap center" style="max-width:640px;">
+      <h2 class="h1 reveal">Start your calm today.</h2>
+      <p class="lead mt-2 reveal center">Free on iPhone, and right here in your browser.</p>
+      <div class="row mt-3 reveal" style="display:flex; gap:14px; flex-wrap:wrap; justify-content:center;">
+        <a class="btn btn-primary btn-lg" href="https://apps.apple.com/app/id6753998938" target="_blank" rel="noopener">Download on the App Store</a>
+        <a class="btn btn-ghost btn-lg" href="app.html">Open the web app</a>
+      </div>
+      <p class="faint mt-3" style="font-size:.82rem;">iOS app on the App Store & TestFlight. Web app works on any modern browser.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="foot-cols">
+        <div style="max-width:280px;">
+          <a class="brand" href="index.html"><span class="brand-mark">⚡</span> TrueDo</a>
+          <p class="mt-2 muted" style="font-size:.9rem;">Money, tasks, health, notes & vault in one calm, private space.</p>
+        </div>
+        <div><strong>Product</strong><a href="#features">Features</a><a href="features.html">All features</a><a href="#reviews">Reviews</a><a href="app.html">Web app</a></div>
+        <div><strong>Legal</strong><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="support.html">Support</a></div>
+        <div><strong>Contact</strong><a href="mailto:ashishjhadeveloper@gmail.com">ashishjhadeveloper@gmail.com</a></div>
+      </div>
+      <p class="mt-4 faint" style="font-size:.82rem;">© <span data-year>2026</span> TrueDo. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="assets/landing.js"></script>
+  <script type="module" src="assets/shots.js"></script>
 </body>
 </html>

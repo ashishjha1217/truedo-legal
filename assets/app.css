@@ -1,0 +1,341 @@
+/* ===========================================================================
+   TrueDo web app — MONOCHROME dashboard theme + motion (app.html only).
+   Loaded AFTER styles.css; html[data-mono] scopes every override so the
+   marketing pages / finance.html keep their colored theme.
+   Design language: complete black & white. Dark = true black canvas, white
+   ink. Light = paper white, black ink. Hierarchy comes from grayscale steps,
+   weight and motion — never hue. Matches the phone app's monochrome Tasks.
+   =========================================================================== */
+
+/* ---- Premium token override (Aether reference) ---------------------------
+   Light = soft cool canvas, WHITE cards with 1px hairlines, near-black pill
+   CTAs, purple reserved for charts. Dark = equally-flat near-black. Hierarchy
+   comes from surfaces + hairlines + weight — never gradients or glows. */
+html[data-mono][data-theme='dark'] {
+  --bg: #0c0d10;  --bg2: #14151a;
+  --ink: #f2f3f5; --muted: #9aa1ac; --faint: #626a76;
+  --line: rgba(255,255,255,0.09); --line2: rgba(255,255,255,0.16);
+  --glass: #14151a; --glass2: #1b1d23; --track: rgba(255,255,255,0.1);
+  --navbg: rgba(12,13,16,0.9); --ov: rgba(8,9,11,0.85); --toastbg: #1b1d23;
+  --coral: #f2f3f5; --cyan: #c9cdd3; --violet: #8b7cf8; --gold: #e4e7ea;
+  --lime: #f2f3f5; --limeD: #c9cdd3; --limeInk: #f2f3f5; --onLime: #101418; --glow2: #1b1d23;
+  --blob1: #14151a; --blob2: #14151a; --blob3: #14151a;
+  --studioA: #14151a; --studioB: #0c0d10;
+  --shadow: 0 16px 36px -20px rgba(0,0,0,0.7);
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.4);
+}
+html[data-mono][data-theme='light'] {
+  --bg: #f4f5f9;  --bg2: #ffffff;
+  --ink: #16181d; --muted: #667085; --faint: #98a2b3;
+  --line: #e8eaee; --line2: #dcdfe5;
+  --glass: #ffffff; --glass2: #f1f2f5; --track: #e8eaee;
+  --navbg: rgba(244,245,249,0.92); --ov: rgba(244,245,249,0.88); --toastbg: #ffffff;
+  --coral: #16181d; --cyan: #4a5261; --violet: #7c6cf6; --gold: #2c3038;
+  --lime: #16181d; --limeD: #000000; --limeInk: #16181d; --onLime: #ffffff; --glow2: #eef1f6;
+  --blob1: #f4f5f9; --blob2: #f4f5f9; --blob3: #f4f5f9;
+  --studioA: #ffffff; --studioB: #f1f2f5;
+  --shadow: 0 14px 34px -18px rgba(16,24,40,0.16);
+  --shadow-sm: 0 1px 2px rgba(16,24,40,0.05);
+}
+/* Per-domain accent classes must NOT re-introduce colour on the dashboard. */
+html[data-mono] .accent-money, html[data-mono] .accent-tasks,
+html[data-mono] .accent-vault, html[data-mono] .accent-home {
+  --lime: var(--ink); --limeD: var(--muted); --limeInk: var(--ink);
+  --glow2: var(--glow2);
+}
+html[data-mono][data-theme='dark'] .accent-money, html[data-mono][data-theme='dark'] .accent-tasks,
+html[data-mono][data-theme='dark'] .accent-vault, html[data-mono][data-theme='dark'] .accent-home { --onLime: #101418; }
+html[data-mono][data-theme='light'] .accent-money, html[data-mono][data-theme='light'] .accent-tasks,
+html[data-mono][data-theme='light'] .accent-vault, html[data-mono][data-theme='light'] .accent-home { --onLime: #ffffff; }
+
+/* ---- Flat canvas: no ambience at all on the dashboard --------------------- */
+html[data-mono] .aura-bg::before,
+html[data-mono] .aura-bg::after { content: none; }
+html[data-mono] .aura-bg .blob-mid { display: none; }
+
+/* ---- Cards read as WHITE panels with hairlines (Aether) -------------------- */
+html[data-mono] .glass, html[data-mono] .glass-strong {
+  background: var(--bg2); border: 1px solid var(--line); box-shadow: var(--shadow-sm);
+}
+html[data-mono] .sidebar { background: var(--bg2); }
+
+/* ---- Brand mark / avatar: solid ink -------------------------------------- */
+html[data-mono] .brand-mark {
+  background: var(--ink); color: var(--bg2); box-shadow: none;
+  filter: grayscale(1); /* the ⚡ glyph renders as a colored emoji otherwise */
+}
+html[data-mono] .dash-avatar {
+  background: var(--ink); color: var(--bg2); box-shadow: var(--shadow-sm);
+}
+html[data-mono] .avatar-wrap:hover .dash-avatar { box-shadow: 0 0 0 2px var(--muted); }
+/* user emojis (habits etc.) keep their colour — small warm accents on white,
+   exactly how the reference dashboard treats its icon tiles */
+html[data-mono] .emoji { filter: none; }
+
+/* ---- Pastel stat tiles (Aether "Total interaction" row) ------------------- */
+html[data-mono][data-theme='light'] .tstat { border: 1px solid var(--line); }
+html[data-mono][data-theme='light'] .tstat:nth-of-type(3n+1):not(.on) { background: #faf3e6; }
+html[data-mono][data-theme='light'] .tstat:nth-of-type(3n+2):not(.on) { background: #eaf1fd; }
+html[data-mono][data-theme='light'] .tstat:nth-of-type(3n+3):not(.on) { background: #f1f2f4; }
+
+/* ---- Motion: global tokens ------------------------------------------------ */
+html[data-mono] { --spring: cubic-bezier(0.22, 1, 0.36, 1); }
+
+/* Staggered entrance: applied to direct visual blocks when a tab/view mounts.
+   Each element gets style="--i:n" for its delay slot. */
+@keyframes riseIn {
+  from { opacity: 0; transform: translateY(14px) scale(0.985); }
+  to   { opacity: 1; transform: none; }
+}
+html[data-mono] .anim-in .stag {
+  opacity: 0;
+  animation: riseIn .5s var(--spring) forwards;
+  animation-delay: calc(var(--i, 0) * 55ms);
+}
+/* Modal pop */
+@keyframes popIn {
+  from { opacity: 0; transform: translateY(16px) scale(0.96); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
+html[data-mono] .modal-overlay { animation: fadeIn .18s ease-out; }
+html[data-mono] .modal-card { animation: popIn .32s var(--spring); }
+/* Toast already transitions. Respect reduced motion everywhere. */
+@media (prefers-reduced-motion: reduce) {
+  html[data-mono] *, html[data-mono] *::before, html[data-mono] *::after {
+    animation-duration: .01ms !important; animation-delay: 0ms !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+/* ===========================================================================
+   TASKS PAGE
+   =========================================================================== */
+
+/* ---- Progress hero -------------------------------------------------------- */
+.thero {
+  display: flex; align-items: center; gap: 22px; padding: 20px 22px;
+  border-radius: 24px; margin-bottom: 16px; flex-wrap: wrap;
+}
+.thero-ring { position: relative; width: 92px; height: 92px; flex: none; }
+.thero-ring svg { transform: rotate(-90deg); }
+.thero-ring .ring-track { stroke: var(--track); }
+.thero-ring .ring-arc {
+  stroke: var(--ink); stroke-linecap: round;
+  transition: stroke-dashoffset .9s var(--spring);
+}
+.thero-ring .ring-center {
+  position: absolute; inset: 0; display: grid; place-items: center; text-align: center;
+}
+.thero-ring .ring-pct { font-weight: 800; font-size: 1.25rem; line-height: 1; font-family: var(--mono); }
+.thero-ring .ring-sub { font-size: .6rem; color: var(--faint); text-transform: uppercase; letter-spacing: .08em; margin-top: 2px; }
+.thero-copy { flex: 1; min-width: 180px; }
+.thero-title { font-size: 1.2rem; font-weight: 800; letter-spacing: -0.01em; }
+.thero-sub { font-size: .86rem; color: var(--muted); margin-top: 3px; }
+.thero-stats { display: flex; gap: 8px; flex-wrap: wrap; }
+.tstat {
+  display: flex; flex-direction: column; align-items: flex-start; gap: 1px;
+  padding: 9px 14px; border-radius: 14px; min-width: 84px;
+  background: var(--glass2); border: 1px solid transparent; cursor: pointer;
+  transition: border-color .18s, background .18s, transform .18s var(--spring);
+}
+.tstat:hover { transform: translateY(-1px); border-color: var(--line2); }
+.tstat.on { background: var(--ink); border-color: var(--ink); }
+.tstat.on .tstat-val, .tstat.on .tstat-label { color: var(--bg); }
+.tstat-val { font-family: var(--mono); font-weight: 800; font-size: 1.05rem; line-height: 1.1; }
+.tstat-label { font-size: .66rem; color: var(--faint); text-transform: uppercase; letter-spacing: .08em; }
+.tstat.warn .tstat-val { text-decoration: underline; text-underline-offset: 3px; }
+
+/* ---- Toolbar: view switcher + sort ---------------------------------------- */
+.ttools { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+.vswitch { display: inline-flex; padding: 3px; gap: 2px; border-radius: 999px; background: var(--glass2); border: 1px solid var(--line); }
+.vswitch button {
+  padding: 6px 13px; border-radius: 999px; font-size: .8rem; font-weight: 600; color: var(--muted);
+  transition: background .18s, color .18s;
+}
+.vswitch button:hover:not(.on) { color: var(--ink); }
+.vswitch button.on { background: var(--ink); color: var(--bg); }
+.sort-pill { font-size: .8rem !important; }
+
+/* ---- Mono stage + priority marks ------------------------------------------ */
+/* stage: todo = hollow, doing = half-filled + pulse, done = solid */
+.sdot { width: 10px; height: 10px; border-radius: 50%; flex: none; border: 1.5px solid var(--muted); background: transparent; }
+.sdot.doing { border-color: var(--ink); background: linear-gradient(90deg, var(--ink) 50%, transparent 50%); animation: dotPulse 2s ease-in-out infinite; }
+.sdot.done { border-color: var(--ink); background: var(--ink); }
+@keyframes dotPulse { 0%,100% { opacity: 1 } 50% { opacity: .5 } }
+/* priority: mono weight — high solid, med half, low hollow */
+html[data-mono] .prio-dot { border: 1.5px solid var(--ink); background: transparent; width: 8px; height: 8px; }
+html[data-mono] .prio-dot.p-high { background: var(--ink); }
+html[data-mono] .prio-dot.p-medium { background: linear-gradient(90deg, var(--ink) 50%, transparent 50%); }
+
+/* overdue: underlined date + heavier card edge */
+.due-chip { font-family: var(--mono); font-size: .72rem; color: var(--muted); white-space: nowrap; }
+.due-chip.overdue { color: var(--ink); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+html[data-mono] .kcard.overdue, html[data-mono] .list-row.overdue { border-left: 3px solid var(--ink); }
+
+/* subtask progress */
+.sub-chip { display: inline-flex; align-items: center; gap: 5px; font-family: var(--mono); font-size: .7rem; color: var(--muted); }
+.sub-chip .sub-bar { width: 34px; height: 4px; border-radius: 99px; background: var(--track); overflow: hidden; }
+.sub-chip .sub-fill { height: 100%; background: var(--ink); border-radius: 99px; transition: width .45s var(--spring); }
+.est-chip { font-family: var(--mono); font-size: .7rem; color: var(--faint); white-space: nowrap; }
+
+/* timer badge → mono */
+html[data-mono] .timer-badge {
+  background: var(--glass2); color: var(--muted); border: 1px solid var(--line2);
+}
+html[data-mono] .timer-badge.running {
+  background: var(--ink); color: var(--bg); border-color: var(--ink);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* kanban columns — flatter, calmer */
+html[data-mono] .kcard { background: var(--bg2); box-shadow: var(--shadow-sm); border-color: var(--line); }
+html[data-mono] .kcard:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+html[data-mono] .kcol.drop-hint { outline: 2px dashed var(--muted); outline-offset: -4px; }
+
+/* ---- Focus view ------------------------------------------------------------ */
+.focus-wrap { display: flex; flex-direction: column; gap: 16px; max-width: 760px; }
+.focus-quick { display: flex; gap: 8px; }
+.focus-quick input {
+  flex: 1; padding: 13px 16px; border-radius: 14px; font-size: .95rem;
+  background: var(--glass2); border: 1px solid var(--line2); color: var(--ink);
+}
+.focus-quick input:focus { outline: none; border-color: var(--ink); }
+.focus-sec { border-radius: 20px; overflow: hidden; }
+.focus-sec-head {
+  display: flex; align-items: center; gap: 8px; padding: 12px 18px 10px;
+  font-family: var(--mono); font-size: .7rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--faint); cursor: default;
+}
+.focus-sec-head.overdue-head { color: var(--ink); }
+.focus-sec-head .fs-count { margin-left: auto; opacity: .8; }
+.focus-sec-head.clickable { cursor: pointer; }
+.focus-sec-head .fs-chev { transition: transform .25s var(--spring); }
+.focus-sec-head.open .fs-chev { transform: rotate(90deg); }
+.frow {
+  display: flex; align-items: center; gap: 12px; padding: 12px 18px;
+  border-top: 1px solid var(--line); cursor: pointer; transition: background .15s;
+}
+.frow:hover { background: var(--glass2); }
+.fcheck {
+  width: 21px; height: 21px; border-radius: 50%; border: 1.5px solid var(--muted);
+  display: grid; place-items: center; flex: none; color: transparent; font-size: .7rem;
+  transition: background .2s var(--spring), border-color .2s, color .2s, transform .2s var(--spring);
+}
+.fcheck:hover { border-color: var(--ink); transform: scale(1.1); }
+.fcheck.on { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+@keyframes tickPop { 0% { transform: scale(.6) } 60% { transform: scale(1.18) } 100% { transform: scale(1) } }
+.fcheck.on.just { animation: tickPop .35s var(--spring); }
+.ftitle { flex: 1; min-width: 0; font-size: .93rem; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ftitle.done { text-decoration: line-through; color: var(--faint); }
+
+/* ---- Calendar view ---------------------------------------------------------- */
+.cal-wrap { max-width: 780px; }
+.cal-head { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.cal-title { font-weight: 800; font-size: 1.05rem; min-width: 150px; }
+.cal-nav {
+  width: 32px; height: 32px; border-radius: 10px; display: grid; place-items: center;
+  background: var(--glass2); border: 1px solid var(--line); color: var(--muted); font-size: .95rem;
+  transition: background .15s, color .15s;
+}
+.cal-nav:hover { background: var(--track); color: var(--ink); }
+.cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; padding: 14px; border-radius: 20px; }
+.cal-dow { text-align: center; font-family: var(--mono); font-size: .64rem; letter-spacing: .1em; color: var(--faint); text-transform: uppercase; padding-bottom: 4px; }
+.cal-cell {
+  aspect-ratio: 1; border-radius: 12px; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 3px; font-size: .85rem; font-weight: 600;
+  color: var(--muted); cursor: pointer; border: 1px solid transparent;
+  transition: background .15s, color .15s, border-color .15s, transform .15s var(--spring);
+}
+.cal-cell:hover { background: var(--glass2); color: var(--ink); transform: scale(1.05); }
+.cal-cell.dim { opacity: .3; }
+.cal-cell.today { border-color: var(--ink); color: var(--ink); }
+.cal-cell.sel { background: var(--ink); color: var(--bg); }
+.cal-load { display: flex; gap: 2px; height: 5px; align-items: center; }
+.cal-load i { border-radius: 50%; background: var(--muted); display: block; }
+.cal-cell.sel .cal-load i { background: var(--bg); }
+.cal-panel { margin-top: 14px; border-radius: 20px; overflow: hidden; animation: riseIn .4s var(--spring); }
+.cal-panel-head { display: flex; align-items: center; padding: 14px 18px 8px; font-weight: 700; font-size: .95rem; }
+.cal-add {
+  margin: 10px 18px 16px; padding: 10px 14px; border-radius: 12px; font-size: .85rem; font-weight: 600;
+  border: 1px dashed var(--line2); color: var(--muted); width: calc(100% - 36px); text-align: center;
+  transition: color .15s, border-color .15s, background .15s;
+}
+.cal-add:hover { color: var(--ink); border-color: var(--ink); background: var(--glass2); }
+
+/* ---- Task detail: subtasks + timer ------------------------------------------ */
+.sub-list { display: flex; flex-direction: column; gap: 2px; margin-top: 4px; }
+.sub-row { display: flex; align-items: center; gap: 10px; padding: 7px 2px; }
+.sub-row .fcheck { width: 18px; height: 18px; font-size: .6rem; }
+.sub-row .sub-title { flex: 1; font-size: .89rem; min-width: 0; }
+.sub-row .sub-title.done { text-decoration: line-through; color: var(--faint); }
+.sub-row .kdel { margin-left: 0; }
+.sub-add { display: flex; gap: 8px; margin-top: 6px; }
+.sub-add input {
+  flex: 1; padding: 9px 12px; border-radius: 10px; font-size: .87rem;
+  background: var(--glass2); border: 1px solid var(--line); color: var(--ink);
+}
+.sub-add input:focus { outline: none; border-color: var(--ink); }
+.timer-ctl { display: flex; align-items: center; gap: 8px; margin-top: 12px; padding: 12px 14px; border-radius: 14px; background: var(--glass2); border: 1px solid var(--line); }
+.timer-ctl .timer-clock { font-family: var(--mono); font-weight: 800; font-size: 1.15rem; letter-spacing: .02em; min-width: 86px; }
+.timer-ctl .timer-state { font-size: .72rem; color: var(--faint); text-transform: uppercase; letter-spacing: .08em; }
+.tbtn {
+  padding: 8px 16px; border-radius: 999px; font-size: .82rem; font-weight: 700;
+  border: 1px solid var(--line2); background: var(--glass2); color: var(--ink);
+  transition: background .15s, transform .15s var(--spring);
+}
+.tbtn:hover { background: var(--track); }
+.tbtn:active { transform: scale(.96); }
+.tbtn.solid { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta-line { font-family: var(--mono); font-size: .72rem; color: var(--faint); margin-top: 12px; }
+
+/* ---- Notes: block editor (checkboxes, links, colours) ----------------------- */
+.note-editable .chk { display: flex; align-items: flex-start; gap: 9px; margin: 4px 0; }
+.note-editable .chk .chktxt { flex: 1; min-width: 0; }
+.chkbox {
+  width: 17px; height: 17px; margin-top: 3px; border-radius: 5px; flex: none;
+  border: 1.5px solid var(--muted); cursor: pointer; display: inline-block;
+  transition: background .18s var(--spring, ease), border-color .18s, transform .18s var(--spring, ease);
+  position: relative;
+}
+.chkbox:hover { border-color: var(--ink); transform: scale(1.1); }
+.chk.done .chkbox, .pv-chk.done .chkbox { background: var(--ink); border-color: var(--ink); }
+.chk.done .chkbox::after, .pv-chk.done .chkbox::after {
+  content: ''; position: absolute; left: 4.5px; top: 1.5px; width: 4px; height: 8px;
+  border: solid var(--bg); border-width: 0 2px 2px 0; transform: rotate(42deg);
+}
+.chk.done .chktxt { text-decoration: line-through; color: var(--faint); }
+.note-editable .lnk {
+  display: inline-flex; align-items: center; gap: 6px; margin: 5px 0; padding: 7px 12px;
+  border-radius: 10px; background: var(--glass2); border: 1px solid var(--line);
+  font-size: .86rem; cursor: pointer; user-select: none;
+}
+.note-editable .lnk:hover { background: var(--track); }
+/* card previews */
+.pv-chk { display: flex; align-items: flex-start; gap: 7px; margin: 2px 0; font-size: .84rem; }
+.pv-chk .chkbox { width: 13px; height: 13px; margin-top: 2px; border-radius: 4px; cursor: default; }
+.pv-chk.done .chkbox::after { left: 3.4px; top: 0.6px; width: 3px; height: 6.5px; }
+.pv-chk.done span:last-child { text-decoration: line-through; color: var(--faint); }
+/* colour dots */
+.note-dots { display: inline-flex; gap: 8px; align-items: center; }
+.note-dot {
+  width: 24px; height: 24px; border-radius: 50%; border: 2px solid transparent;
+  background: var(--glass2); color: var(--faint); font-size: .7rem; line-height: 1;
+  display: grid; place-items: center; transition: transform .15s var(--spring, ease), border-color .15s;
+}
+.note-dot:hover { transform: scale(1.12); }
+.note-dot.on { border-color: var(--ink); transform: scale(1.12); }
+
+/* ---- Demo banner -------------------------------------------------------------- */
+.demo-banner {
+  position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 60;
+  padding: 8px 14px; border-radius: 999px; font-family: var(--mono); font-size: .72rem;
+  background: var(--ink); color: var(--bg); opacity: .85; pointer-events: none;
+}
+
+/* ---- Small screens -------------------------------------------------------------- */
+@media (max-width: 700px) {
+  .thero { gap: 14px; padding: 16px; }
+  .thero-stats { width: 100%; }
+  .tstat { flex: 1; min-width: 0; }
+}
