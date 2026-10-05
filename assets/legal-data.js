@@ -4,7 +4,7 @@
 window.LEGAL = (function () {
   const APP = 'TrueDo';
   const CONTACT = 'ashishjhadeveloper@gmail.com';
-  const EFFECTIVE = 'July 2, 2026';
+  const EFFECTIVE = 'October 5, 2026';
 
   const PRIVACY = [
     { p: `This Privacy Policy explains how ${APP} ("the app", "we", "us") collects, uses, stores and protects your information. By using ${APP} you agree to the practices described here.` },
@@ -16,7 +16,7 @@ window.LEGAL = (function () {
     { li: 'Content you create — finances (accounts, balances, transactions, budgets, goals), tasks, notes, bookmarks, documents and photos you add, and any passwords or secrets you choose to save in the Vault.' },
     { li: 'On-device media you select — photos and files are only accessed when you explicitly pick them to add to the app.' },
     { li: 'Health information you log — if you use the Health tab: your health profile (age, sex, height, weight, goal weight, activity level, lifestyle habits), the food, weight and steps entries you log, and your groceries and favourite foods. You can erase all of it at any time from Health → Settings → Reset health data.' },
-    { li: 'Apple Health (optional, read-only) — with your permission, the app reads your steps, heart rate and active energy from Apple Health to show them on your Health page and in your health score. We never write to Apple Health without asking, never use Apple Health data for advertising or marketing, and never share or sell it to third parties. You can revoke access at any time in iOS Settings → Health → Data Access & Devices.' },
+    { li: 'Apple Health (optional, read-only) — with your permission, the app reads your steps, active energy and sleep from Apple Health to show them on your Health page and in your health score. The app never writes anything to Apple Health, never uses Apple Health data for advertising or marketing, and never shares or sells it to third parties. You can revoke access at any time in iOS Settings → Health → Data Access & Devices.' },
     { p: 'We do NOT connect to your bank, we do NOT import transactions automatically, and we do NOT collect advertising identifiers, location, contacts, or browsing history.' },
     { h2: '3. Device permissions we ask for' },
     { p: 'Every permission is optional, requested only when you first use the feature that needs it, and the app keeps working if you decline. You can change any of them later in your device Settings.' },
@@ -24,7 +24,7 @@ window.LEGAL = (function () {
     { li: 'Photo library — only when you pick pictures to add to your gallery, notes or Vault.' },
     { li: 'Microphone — only while you talk to the AI assistant by voice or use voice typing.' },
     { li: 'Speech recognition — to turn what you say into text while you dictate.' },
-    { li: 'Apple Health — read-only access to steps, heart rate and active energy, as described above.' },
+    { li: 'Apple Health — read-only access to steps, active energy and sleep, as described above. The app never writes to Apple Health.' },
     { li: 'Face ID — to unlock your private Vault. Biometrics are handled entirely by your device’s operating system; your face data never reaches the app or our servers.' },
     { li: 'Notifications — to deliver the reminders you set up (tasks, dues, daily brief). Fully configurable per type, or can be left off.' },
     { h2: '4. How your data is stored' },
