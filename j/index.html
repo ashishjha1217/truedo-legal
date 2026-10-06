@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Join on TrueDo</title>
+  <meta name="description" content="You've been invited to work on something together in TrueDo." />
+  <meta property="og:title" content="You're invited to TrueDo" />
+  <meta property="og:description" content="Open to join. You'll both see it and can both edit it." />
+  <meta name="robots" content="noindex" />
+  <link rel="icon" href="../assets/icon.svg" />
+  <style>
+    :root { --bg: #ffffff; --ink: #17181a; --muted: #6b6f76; --card: #f3f4f6; --btn: #17181a; --onbtn: #ffffff; }
+    @media (prefers-color-scheme: dark) { :root { --bg: #000000; --ink: #f4f5f7; --muted: #9aa0a8; --card: #15171a; --btn: #f4f5f7; --onbtn: #000000; } }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; background: var(--bg); color: var(--ink); font: 16px/1.45 -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+      display: flex; align-items: center; justify-content: center; padding: 24px 16px; }
+    main { width: 100%; max-width: 380px; text-align: center; }
+    img { width: 72px; height: 72px; border-radius: 18px; }
+    h1 { font-size: 26px; line-height: 1.2; letter-spacing: -0.4px; margin: 18px 0 8px; }
+    p { color: var(--muted); margin: 0 0 22px; }
+    a.btn { display: block; padding: 15px 18px; border-radius: 999px; font-weight: 700; text-decoration: none; margin-top: 10px; }
+    a.primary { background: var(--btn); color: var(--onbtn); }
+    a.secondary { background: var(--card); color: var(--ink); }
+    small { display: block; color: var(--muted); margin-top: 18px; font-size: 13px; }
+  </style>
+</head>
+<body>
+  <main>
+    <img src="../assets/icon.svg" alt="" />
+    <h1>You're invited to TrueDo</h1>
+    <p>Open the invite in the app to join. You'll both see it and can both edit it.</p>
+    <a class="btn primary" id="open" href="#">Open in TrueDo</a>
+    <a class="btn secondary" href="https://apps.apple.com/app/id6753998938">Get TrueDo on the App Store</a>
+    <small>New to TrueDo? Install it, sign in, then come back to this page and tap Open in TrueDo.</small>
+  </main>
+  <script>
+    // The invite token travels after '#', so it never reaches any server.
+    var token = (location.hash || '').replace(/^#/, '').replace(/[^A-Za-z0-9]/g, '');
+    var app = 'truedo://join?id=' + encodeURIComponent(token);
+    var open = document.getElementById('open');
+    if (token) { open.href = app; setTimeout(function () { location.href = app; }, 300); }
+    else { open.style.display = 'none'; document.querySelector('p').textContent = 'This invite link is incomplete. Ask for a new one.'; }
+  </script>
+</body>
+</html>
