@@ -4,13 +4,13 @@
 window.LEGAL = (function () {
   const APP = "TrueDo";
   const CONTACT = "ashishjhadeveloper@gmail.com";
-  const EFFECTIVE = "October 6, 2026";
+  const EFFECTIVE = "October 25, 2026";
   const PRIVACY = [
  {
   "p": "This Privacy Policy explains how TrueDo collects, uses, shares, stores and protects your personal information when you use the TrueDo app for iPhone and iPad and the related services we provide (together, the \"Service\"), and the choices and rights you have. In this policy, \"TrueDo\", \"we\", \"us\" and \"our\" mean Ashish Jha, the individual developer who provides the Service. Please read it together with our Terms of Service. If you do not agree with this policy, please do not use the Service."
  },
  {
-  "note": "Effective October 6, 2026"
+  "note": "Effective October 25, 2026"
  },
  {
   "h2": "1. Key points"
@@ -26,6 +26,9 @@ window.LEGAL = (function () {
  },
  {
   "li": "Apple Health access is optional and read-only: steps, active energy and sleep. TrueDo never writes to Apple Health."
+ },
+ {
+  "li": "Apple Reminders sync is optional and off until you turn it on. When it is on, your reminders and TrueDo tasks are kept in step both ways (section 3.3)."
  },
  {
   "li": "We do not sell your personal information, show ads, use third-party advertising, analytics or tracking SDKs, or track you across other companies' apps and websites."
@@ -88,7 +91,13 @@ window.LEGAL = (function () {
   "p": "With your permission, TrueDo reads your daily steps, active energy and sleep from Apple Health to show them on your Health page, in your reports and in your health score. These daily totals are saved with your other health data so your history keeps working. TrueDo reads no other Apple Health data and never writes anything to Apple Health. We never use Apple Health data for advertising or marketing, never sell it, and never share it with third parties for their own purposes. It is processed only on our behalf by our service providers: Google Firebase stores it and, only if TrueDo AI is on and you use an AI feature that needs it, Google Gemini processes it to answer you (section 6). You can stop access at any time in iOS Settings → Health → Data Access &amp; Devices."
  },
  {
-  "p": "3.3 Information collected automatically"
+  "p": "3.3 Information from Apple Reminders (optional)"
+ },
+ {
+  "p": "If you turn on Apple Reminders sync (Profile → Apple Reminders), TrueDo reads the reminders in the lists you choose and saves them as tasks in your account, and adds your TrueDo tasks to Apple Reminders, so changes, completions and deletions in one app show in the other. What comes across is each reminder's title, notes, date and time, repeat, priority, list and whether it is done. Reminders brought in are stored with your other tasks (section 9) and are treated like any task you add yourself. Locations, tags and images on a reminder are never read. You can turn sync off in TrueDo or stop access at any time in iOS Settings → Apps → TrueDo → Reminders; tasks already brought in stay in your account until you delete them."
+ },
+ {
+  "p": "3.4 Information collected automatically"
  },
  {
   "li": "Usage records — to run the Service, manage its costs and apply plan limits, the app keeps one usage record per day for your account. It counts app opens, AI requests and AI usage and how often features are used, and notes your plan and trial status, app version, platform and the email address on your account. It never contains the content of your tasks, notes, money, health data or conversations. We do not use third-party analytics, advertising or crash-reporting SDKs."
@@ -125,6 +134,9 @@ window.LEGAL = (function () {
  },
  {
   "li": "Apple Health — read-only access to steps, active energy and sleep, as described in section 3.2."
+ },
+ {
+  "li": "Reminders — to keep your Apple Reminders and TrueDo tasks in step, only if you turn on Apple Reminders sync, as described in section 3.3."
  },
  {
   "li": "Face ID — to unlock locked Vault folders and albums. Face ID is handled entirely by iOS; your face data never reaches TrueDo or our servers."
@@ -474,7 +486,7 @@ window.LEGAL = (function () {
   "p": "Please read these Terms carefully. They include important limits on our liability (section 16) and explain how disputes are resolved (section 18). By creating an account, or by downloading, installing, accessing or using the Service, you agree to these Terms and acknowledge our Privacy Policy. If you do not agree, do not use the Service."
  },
  {
-  "note": "Effective October 6, 2026"
+  "note": "Effective October 25, 2026"
  },
  {
   "h2": "1. Definitions"
